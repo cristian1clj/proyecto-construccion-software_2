@@ -101,7 +101,7 @@ fun pantalla1(navController: NavController) {
                 Spacer(modifier = Modifier.padding(10.dp))
                 Button(
                     onClick = {
-                              navController.navigate(route = AppScreens.Pantalla2.route)
+                        navController.navigate(route = "${AppScreens.Pantalla2.route}/$var4")
                     },
                 ) {
                     Text(text = "Enviar")
