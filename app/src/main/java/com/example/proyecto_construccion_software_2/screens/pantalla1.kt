@@ -16,11 +16,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.proyecto_construccion_software_2.R
+import com.example.proyecto_construccion_software_2.navigation.AppScreens
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Composable
-fun pantalla1() {
+fun pantalla1(navController: NavController) {
     val focusRequester = remember { FocusRequester() }
     val var1 = remember {
         mutableStateOf("")
@@ -99,6 +101,7 @@ fun pantalla1() {
                 Spacer(modifier = Modifier.padding(10.dp))
                 Button(
                     onClick = {
+                              navController.navigate(route = AppScreens.Pantalla2.route)
                     },
                 ) {
                     Text(text = "Enviar")
