@@ -5,7 +5,11 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
@@ -27,7 +31,11 @@ fun pantalla3(navController: NavController, confirmacion: String?) {
             ) {
                 confirmacion?.let {
                     val var5: String = confirmacion.toString()
-                    Text(text = "el copropietario ha $var5 la entrada del visitante ")
+                    Text(text = "el copropietario ha $var5 la entrada del visitante ",
+                    style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 25.sp),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .width(400.dp))
                 }
             }
         }

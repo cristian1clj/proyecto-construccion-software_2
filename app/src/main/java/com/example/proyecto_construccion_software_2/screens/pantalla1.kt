@@ -1,25 +1,24 @@
 package com.example.proyecto_construccion_software_2.screens
 
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.proyecto_construccion_software_2.R
+import com.example.proyecto_construccion_software_2.navigation.AppNavigation
 import com.example.proyecto_construccion_software_2.navigation.AppScreens
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
+import com.example.proyecto_construccion_software_2.ui.theme.Proyectoconstruccionsoftware_2Theme
 
 @Composable
 fun pantalla1(navController: NavController) {
@@ -52,9 +51,12 @@ fun pantalla1(navController: NavController) {
                 .padding(10.dp)
         ) {
             Text(
+
                 text = "Autorizacion entrada de vehiculo",
-                style = TextStyle(fontWeight = FontWeight.Bold),
-      //          fontSize = TextUnit.Companion.Sp(2)
+                style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 30.sp),
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                        .width(400.dp)
             )
             Spacer(modifier = Modifier.padding(20.dp))
             Column(
@@ -66,7 +68,8 @@ fun pantalla1(navController: NavController) {
                     label = { Text(text = "Matricula") },
                     placeholder = { Text(text = "Matricula") },
                     singleLine = true,
-                    modifier = Modifier.fillMaxWidth(0.8f)
+                    modifier = Modifier.fillMaxWidth(0.8f),
+                    shape = RoundedCornerShape(30.dp)
                 )
                 OutlinedTextField(
                     value = var2.value,
@@ -77,6 +80,7 @@ fun pantalla1(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
                         .focusRequester(focusRequester = focusRequester),
+                    shape = RoundedCornerShape(30.dp)
                 )
                 OutlinedTextField(
                     value = var3.value,
@@ -87,6 +91,7 @@ fun pantalla1(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
                         .focusRequester(focusRequester = focusRequester),
+                    shape = RoundedCornerShape(30.dp)
                     )
                 OutlinedTextField(
                     value = var4.value,
@@ -97,14 +102,18 @@ fun pantalla1(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
                         .focusRequester(focusRequester = focusRequester),
+                    shape = RoundedCornerShape(30.dp)
                     )
-                Spacer(modifier = Modifier.padding(10.dp))
-                Button(
+                Spacer(modifier = Modifier.padding(20.dp))
+                Button(shape = RoundedCornerShape(30.dp),
                     onClick = {
                         navController.navigate(route = "${AppScreens.Pantalla2.route}/${var4.value}")
+
                     },
+                    modifier = Modifier.size(width = 200.dp, height = 50.dp)
                 ) {
-                    Text(text = "Enviar")
+                    Text(text = "Enviar",style = TextStyle(fontSize = 19.sp),
+                    )
                 }
             }
         }
