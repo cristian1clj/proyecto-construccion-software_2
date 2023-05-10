@@ -5,5 +5,6 @@ sealed class AppScreens(
     ){
         object Pantalla1 : AppScreens( "pantalla_1")
         object Pantalla2 : AppScreens( "pantalla_2")
+        object Pantalla3 : AppScreens("pantalla_3")
 }
 

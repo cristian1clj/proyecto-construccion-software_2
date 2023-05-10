@@ -6,7 +6,6 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -38,8 +37,8 @@ fun pantalla2(navController: NavController, nombreVisitante: String?) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 nombreVisitante?.let {
-                    //                    val var4 =
-                    Text(text = "desea recibir a $it ?")
+                     val var4 : String = nombreVisitante.toString()
+                    Text(text = "¿desea recibir a $var4 ?")
                 }
                 Spacer(modifier = Modifier.padding(10.dp))
 
@@ -50,8 +49,10 @@ fun pantalla2(navController: NavController, nombreVisitante: String?) {
                 ) {
                     Button(
                         onClick = {
-                            // go to the 3th page
+                            val var5 = "Rechazado"
+                            navController.navigate(route = "${AppScreens.Pantalla3.route}/${var5}")
                         },
+                        modifier = Modifier.padding(10.dp),
                         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red)
                     ) {
                         Text(text = "Rechazar")
@@ -59,8 +60,10 @@ fun pantalla2(navController: NavController, nombreVisitante: String?) {
 
                     Button(
                         onClick = {
-                            // go to the 3th page
+                            val var5 = "Aceptado"
+                            navController.navigate(route = "${AppScreens.Pantalla3.route}/${var5}")
                         },
+                        modifier = Modifier.padding(10.dp),
                         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green)
                     ) {
                         Text(text = "Aceptar")

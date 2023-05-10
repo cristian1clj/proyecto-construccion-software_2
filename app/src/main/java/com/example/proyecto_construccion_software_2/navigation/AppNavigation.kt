@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.proyecto_construccion_software_2.screens.pantalla1
 import com.example.proyecto_construccion_software_2.screens.pantalla2
+import com.example.proyecto_construccion_software_2.screens.pantalla3
 
 @Composable
 fun AppNavigation(){
@@ -23,6 +24,13 @@ fun AppNavigation(){
                 })
             ) {
             pantalla2(navController, it.arguments?.getString("nombreVisitante"))
+        }
+        composable(route = AppScreens.Pantalla3.route + "/{confirmacion}",
+                arguments = listOf(navArgument(name= "confirmacion"){
+                    type = NavType.StringType
+                })
+            ){
+            pantalla3(navController,it.arguments?.getString("confirmacion"))
         }
     }
 }
